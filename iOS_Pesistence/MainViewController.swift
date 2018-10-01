@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func onBtnSaveText(_ sender: UIButton) {
-        performSegue(withIdentifier: "Save Text", sender: nil)
+        performSegue(withIdentifier: "SaveText", sender: nil)
     }
     
     
