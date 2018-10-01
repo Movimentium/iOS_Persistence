@@ -1,11 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ecZ-AH-tNH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--iOS Persistence-->
+        <scene sceneID="zQq-y9-h9c">
+            <objects>
+                <viewController id="MGP-py-0Y2" customClass="MainViewController" customModule="iOS_Pesistence" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4yu-cP-1yu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0C-Xc-zu4">
+                                <rect key="frame" x="17" y="20" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save a text"/>
+                                <connections>
+                                    <action selector="onBtnSaveText:" destination="MGP-py-0Y2" eventType="touchUpInside" id="EZ2-X9-JqM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yQA-5g-tWF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="iOS Persistence" id="ew7-Tj-NZW">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2Vw-mo-fTa"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="U2s-pz-FAM" kind="show" identifier="SaveText" id="J0n-C8-NVq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4S8-se-DSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1367.2" y="146.17691154422789"/>
+        </scene>
+        <!--Save a text-->
+        <scene sceneID="09M-75-eDz">
+            <objects>
+                <viewController id="U2s-pz-FAM" customClass="SaveTextViewController" customModule="iOS_Pesistence" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fOo-xa-GhW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mCh-Jd-xhd">
+                                <rect key="frame" x="16" y="20" width="343" height="515"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.96078431372549022" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pip-Xs-wa9">
+                                <rect key="frame" x="203" y="543" width="156" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKC-Jx-C83">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="0.98039215690000003" alpha="0.50907790490000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0NW-xZ-Qkq"/>
+                                            <constraint firstAttribute="width" constant="73" id="hNx-Ol-mxx"/>
+                                        </constraints>
+                                        <state key="normal" title="Load">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onBtnLoad" destination="U2s-pz-FAM" eventType="touchUpInside" id="OXn-il-SxZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRr-LB-p7g">
+                                        <rect key="frame" x="83" y="0.0" width="73" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47058823529411764" blue="0.98039215686274506" alpha="0.5090779049295775" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="73" id="n8Z-GV-cXz"/>
+                                            <constraint firstAttribute="height" constant="40" id="pPv-oV-iX2"/>
+                                        </constraints>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onBtnSave" destination="U2s-pz-FAM" eventType="touchUpInside" id="Wiw-T7-JNr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pip-Xs-wa9" firstAttribute="top" secondItem="mCh-Jd-xhd" secondAttribute="bottom" constant="8" id="GkQ-xZ-g2C"/>
+                            <constraint firstItem="mCh-Jd-xhd" firstAttribute="top" secondItem="Ty8-Jo-UGq" secondAttribute="top" constant="20" id="I72-m4-i5s"/>
+                            <constraint firstItem="Ty8-Jo-UGq" firstAttribute="trailing" secondItem="mCh-Jd-xhd" secondAttribute="trailing" constant="16" id="LLy-fG-EGx"/>
+                            <constraint firstItem="Ty8-Jo-UGq" firstAttribute="bottom" secondItem="pip-Xs-wa9" secondAttribute="bottom" constant="20" id="PWo-MQ-XUP"/>
+                            <constraint firstItem="Ty8-Jo-UGq" firstAttribute="trailing" secondItem="pip-Xs-wa9" secondAttribute="trailing" constant="16" id="frd-rx-wLx"/>
+                            <constraint firstItem="mCh-Jd-xhd" firstAttribute="leading" secondItem="Ty8-Jo-UGq" secondAttribute="leading" constant="16" id="nUY-46-8Be"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ty8-Jo-UGq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Save a text" id="HLM-Ta-NNw"/>
+                    <connections>
+                        <outlet property="txtVw" destination="mCh-Jd-xhd" id="9Tl-6R-SVb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKI-RP-UMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2120.8000000000002" y="144.3778110944528"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AE2-DG-ue3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ecZ-AH-tNH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Zkx-K2-GIj">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MGP-py-0Y2" kind="relationship" relationship="rootViewController" id="dn0-Lg-8NV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50K-hV-Gft" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="146"/>
+        </scene>
+    </scenes>
 </document>
